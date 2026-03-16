@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McPack B2B | Configura tu Packaging Sostenible y Personalizado</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Plataforma exclusiva para clientes B2B de McPack. Especialistas en vasos de papel, ensaladeras y bolsas sostenibles. Configura tu pedido con logo en segundos.">
+    
+    <!-- SEO & Social Meta Tags -->
+    <meta property="og:title" content="McPack B2B | Portal de Pedidos">
+    <meta property="og:description" content="Automatiza tus pedidos de packaging sostenible con Alfonso. Precios directos y plantillas de diseño.">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mcpack.es">
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-text">MCPACK<span>.es</span></div>
+                <div style="font-size: 0.7rem; color: var(--gray-medium); font-weight: 600; text-transform: uppercase; margin-left: 5px; opacity: 0.8;">B2B Portal</div>
+            </div>
+            <div class="zone-selector">
+                <span style="font-size: 0.9rem; margin-right: 10px; font-weight: 600;">Zona de Entrega:</span>
+                <button id="btn-bcn" class="nav-btn active" onclick="setZone('bcn')">Barcelona</button>
+                <button id="btn-rest" class="nav-btn" onclick="setZone('rest')">Península / Baleares</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Tu Packaging, Automatizado.</h1>
+                <p>Configura tu pedido personalizado en segundos. Sin esperas, sin errores, directamente a producción.</p>
+                <div class="category-nav">
+                    <button class="nav-btn active" onclick="updateNav(this, 'vasos')">☕ Vasos</button>
+                    <button class="nav-btn" onclick="updateNav(this, 'cafeteria')">🥐 Cafetería</button>
+                    <button class="nav-btn" onclick="updateNav(this, 'comida')">🍔 Comida / Takeaway</button>
+                    <button class="nav-btn" onclick="updateNav(this, 'pizza')">🍕 Pizzería</button>
+                    <button class="nav-btn" onclick="updateNav(this, 'bolsas')">🛍️ Bolsas</button>
+                    <button class="nav-btn" onclick="updateNav(this, 'all')">Ver Todo</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div id="catalog-grid" class="catalog-grid">
+                <!-- Products injected by JS -->
+            </div>
+        </section>
+
+        <section id="templates-section" class="container" style="margin-top: 60px;">
+            <div class="order-panel" style="background: var(--white);">
+                <div class="order-header">
+                    <h2>Plantillas de Diseño</h2>
+                    <span style="color: var(--primary); font-weight: 600;">Diseña como un profesional</span>
+                </div>
+                <p style="margin-bottom: 25px; color: var(--gray-medium);">Para pedidos personalizados por primera vez, descarga la plantilla de tu producto y envíanos tu diseño. Esto acelera la producción significativamente.</p>
+                <div class="templates-grid">
+                    <div class="template-card">
+                        <div class="template-thumb">☕</div>
+                        <div class="template-info">
+                            <h4>Vasos 8oz</h4>
+                            <a href="templates/vasos_8oz.pdf" target="_blank" download class="btn-download">Ver Plantilla</a>
+                        </div>
+                    </div>
+                    <div class="template-card">
+                        <div class="template-thumb">☕</div>
+                        <div class="template-info">
+                            <h4>Vasos 16oz</h4>
+                            <a href="templates/vasos_16oz.pdf" target="_blank" download class="btn-download">Ver Plantilla</a>
+                        </div>
+                    </div>
+                    <div class="template-card">
+                        <div class="template-thumb">🛍️</div>
+                        <div class="template-info">
+                            <h4>Bolsa (28x29x16)</h4>
+                            <a href="templates/bolsa_28x29x16.pdf" target="_blank" download class="btn-download">Ver Plantilla</a>
+                        </div>
+                    </div>
+                    <div class="template-card">
+                        <div class="template-thumb">🛍️</div>
+                        <div class="template-info">
+                            <h4>Bolsa (26x18x25)</h4>
+                            <a href="templates/bolsa_26x18x25.pdf" target="_blank" download class="btn-download">Ver Plantilla</a>
+                        </div>
+                    </div>
+                    <div class="template-card">
+                        <div class="template-thumb">📦</div>
+                        <div class="template-info">
+                            <h4>Flexo (24x14x33)</h4>
+                            <a href="templates/ap_flexo_24x14x33.pdf" target="_blank" download class="btn-download">Ver Plantilla</a>
+                        </div>
+                    </div>
+                    <div class="template-card">
+                        <div class="template-thumb">📄</div>
+                        <div class="template-info">
+                            <h4>Papel Auto (27x26)</h4>
+                            <a href="templates/papel_automatico_27x26.pdf" target="_blank" download class="btn-download">Ver Plantilla</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="order-section" class="container">
+            <div class="order-panel">
+                <div class="order-header">
+                    <h2>Tu Pedido Especial</h2>
+                    <span style="color: var(--gray-medium);">Borrador de solicitud</span>
+                </div>
+                
+                <div id="order-items" class="order-items">
+                    <!-- Cart items injected by JS -->
+                </div>
+
+                <div class="total-section">
+                    <div class="total-row">
+                        <span>Base Imponible (Est.)</span>
+                        <span id="grand-total">0.00€</span>
+                    </div>
+                    <div class="total-row" style="color: var(--gray-medium); font-size: 0.9rem;">
+                        <span>IVA (21%)</span>
+                        <span id="iva-amount">0.00€</span>
+                    </div>
+                    <div class="total-row grand-total">
+                        <span>Total Solicitud (IVA Incl.)</span>
+                        <span id="grand-total-display">0.00€</span>
+                    </div>
+                    
+                    <div class="conditions-box" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--gray-light); font-size: 0.85rem; color: var(--primary);">
+                        <p><strong>*</strong> Presupuesto aplicable a diseños sencillos.</p>
+                        <p><strong>*</strong> El concepto cliché se paga la primera producción. En caso de repeticiones, este importe no será incluido en la cotización.</p>
+                        <p><strong>*</strong> Almacenamos los productos en nuestro almacén durante 6 meses sin coste.</p>
+                        <p><strong>*</strong> IVA NO incluido en los precios unitarios del catálogo.</p>
+                    </div>
+                </div>
+
+                <form id="order-form" onsubmit="event.preventDefault(); submitOrder();">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="name">Nombre de Contacto</label>
+                            <input type="text" id="name" placeholder="Ej: Marc Vila" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="company">Empresa / Negocio</label>
+                            <input type="text" id="company" placeholder="Ej: Coffee & Co" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email Profesional</label>
+                            <input type="email" id="email" placeholder="hola@tunegocio.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="phone">Teléfono / WhatsApp</label>
+                            <input type="tel" id="phone" placeholder="+34 600 000 000" required>
+                        </div>
+                        
+                        <!-- NEW: Replenishment Workflow Fields -->
+                        <div class="input-group" style="grid-column: span 2; background: #f0f7f0; padding: 15px; border-radius: 8px; border: 1px dashed var(--primary);">
+                            <label style="color: var(--primary); font-weight: 700;">🔄 Servicio de Reposición Inteligente (Auto-Aviso)</label>
+                            <p style="font-size: 0.85rem; margin-bottom: 10px;">Te avisaremos cuando te quede un 30-40% de stock para que nunca te quedes sin packaging.</p>
+                            <div style="display: flex; gap: 15px;">
+                                <div style="flex: 1;">
+                                    <label for="stock-usage" style="font-size: 0.8rem;">Consumo estimado (uds/semana)</label>
+                                    <input type="number" id="stock-usage" placeholder="Ej: 500">
+                                </div>
+                                <div style="flex: 1;">
+                                    <label for="stock-end-date" style="font-size: 0.8rem;">¿Cuándo calculas que se te acabará?</label>
+                                    <input type="date" id="stock-end-date">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group" style="grid-column: span 2;">
+                            <label for="notes">Notas especiales (ej: detalles del logo, dirección exacta)</label>
+                            <textarea id="notes" rows="3" placeholder="Indica aquí si necesitas envío urgente o tienes dudas sobre el diseño..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-order">Enviar Solicitud a Alfonso</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: var(--dark); color: var(--white); padding: 50px 0; margin-top: 100px;">
+        <div class="container" style="text-align: center;">
+            <div class="logo-text" style="color: var(--white); margin-bottom: 20px;">MCPACK<span>.es</span></div>
+            <p style="color: var(--gray-medium); max-width: 500px; margin: 0 auto 30px;">
+                Especialistas en packaging sostenible y personalizado. 
+                Servicio rápido 24/48h en toda España.
+            </p>
+            <div style="font-size: 0.9rem; color: var(--gray-medium);">
+                © 2026 McPack Sostenible. Barcelona, España.
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
