@@ -251,25 +251,29 @@ function getIcon(cat) {
 function openConfigurator(productId) {
     const product = products.find(p => p.id === productId);
     const configHtml = `
-        <div id="modal-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:2000;">
-            <div class="order-panel" style="max-width:500px;width:95%;">
-                <h2 style="margin-bottom:20px;">Configurar ${product.name}</h2>
-                <div class="input-group" style="margin-bottom:15px;">
-                    <label>Tipo de Producto</label>
-                    <select id="config-type" onchange="updateConfigPrice('${productId}')">
+        <div id="modal-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(25, 20, 15, 0.85);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:9000;padding:20px;">
+            <div class="order-panel" style="max-width:550px;width:100%;position:relative;animation:fadeInUp 0.4s ease; background:white; color:var(--primary);">
+                <button onclick="closeModal()" style="position:absolute;top:15px;right:15px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--gray-medium);">×</button>
+                <h2 style="margin-bottom:25px; color:var(--primary); font-size:1.6rem; letter-spacing:-0.5px;">Configurar <span style="color:var(--accent);">${product.name}</span></h2>
+                
+                <div class="input-group" style="margin-bottom:20px;">
+                    <label style="display:block;margin-bottom:8px;font-weight:700;">Tipo de Producto</label>
+                    <select id="config-type" onchange="updateConfigPrice('${productId}')" style="width:100%;">
                         <option value="standard">Estándar (Sin logo)</option>
                         <option value="personalized">Personalizado (Con logo)</option>
                     </select>
                 </div>
-                <div class="input-group" style="margin-bottom:15px;">
-                    <label>Cantidad (unidades)</label>
-                    <input type="number" id="config-qty" value="${userZone === 'bcn' ? product.moqStandard.bcn : product.moqStandard.rest}" step="1000" onchange="updateConfigPrice('${productId}')">
-                    <small id="moq-warning" style="color:var(--primary); font-weight:600;"></small>
+                
+                <div class="input-group" style="margin-bottom:20px;">
+                    <label style="display:block;margin-bottom:8px;font-weight:700;">Cantidad (unidades)</label>
+                    <input type="number" id="config-qty" value="${userZone === 'bcn' ? product.moqStandard.bcn : product.moqStandard.rest}" step="1000" onchange="updateConfigPrice('${productId}')" style="width:100%;">
+                    <small id="moq-warning" style="color:var(--primary); font-weight:700; display:block; margin-top:5px;"></small>
                 </div>
+                
                 <div id="personalized-options" style="display:none;">
-                    <div class="input-group" style="margin-bottom:15px;">
-                        <label>Tintas de impresión</label>
-                        <select id="config-inks" onchange="updateConfigPrice('${productId}')">
+                    <div class="input-group" style="margin-bottom:20px;">
+                        <label style="display:block;margin-bottom:8px;font-weight:700;">Tintas de impresión</label>
+                        <select id="config-inks" onchange="updateConfigPrice('${productId}')" style="width:100%;">
                             <option value="1">1 Tinta (100€ Cliché)</option>
                             <option value="2">2 Tintas (200€ Cliché)</option>
                             <option value="3">3 Tintas (300€ Cliché)</option>
@@ -277,13 +281,24 @@ function openConfigurator(productId) {
                         </select>
                     </div>
                 </div>
-                <div class="total-section">
-                    <div class="total-row"><span>Precio Subtotal:</span> <span id="config-subtotal">---</span></div>
-                    <div class="total-row" id="cliche-row" style="display:none;"><span>Cliché (un solo pago):</span> <span id="config-cliche">---</span></div>
-                    <div class="total-row grand-total"><span>Total Estimado:</span> <span id="config-total">---</span></div>
+                
+                <div class="total-section" style="background:var(--eco-light); border-radius:16px; padding:20px; margin:25px 0;">
+                    <div class="total-row" style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                        <span style="font-weight:600;">Precio Subtotal:</span> 
+                        <span id="config-subtotal" style="font-weight:700;">---</span>
+                    </div>
+                    <div class="total-row" id="cliche-row" style="display:none; justify-content:space-between; margin-bottom:10px;">
+                        <span style="font-weight:600;">Cliché (un solo pago):</span> 
+                        <span id="config-cliche" style="font-weight:700;">---</span>
+                    </div>
+                    <div class="total-row grand-total" style="display:flex; justify-content:space-between; border-top:2px solid var(--gray-light); padding-top:15px; margin-top:10px; font-size:1.5rem; font-weight:800; color:var(--primary);">
+                        <span>Total Estimado:</span> 
+                        <span id="config-total">---</span>
+                    </div>
                 </div>
-                <div style="display:flex; gap:10px; margin-top:20px;">
-                    <button class="nav-btn" onclick="closeModal()" style="flex:1;">Cancelar</button>
+                
+                <div style="display:flex; gap:15px;">
+                    <button class="nav-btn" onclick="closeModal()" style="flex:1; border:2px solid var(--gray-light); background:transparent; color:var(--primary);">Cancelar</button>
                     <button class="btn-add" id="add-to-cart-btn" onclick="addToCart('${productId}')" style="flex:2;">Añadir al Pedido</button>
                 </div>
             </div>
