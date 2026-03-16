@@ -178,7 +178,10 @@
                             <label for="notes">Notas especiales (ej: detalles del logo, dirección exacta)</label>
                             <textarea id="notes" rows="3" placeholder="Indica aquí si necesitas envío urgente o tienes dudas sobre el diseño..."></textarea>
                         </div>
-                        <button type="submit" class="btn-order">Enviar Solicitud a Alfonso</button>
+                        <div class="submit-group">
+                            <button type="button" class="btn-order-wa" onclick="submitOrder('whatsapp')">🟢 Pedir por WhatsApp</button>
+                            <button type="button" class="btn-order-mail" onclick="submitOrder('email')">✉️ Pedir por Email</button>
+                        </div>
                     </div>
                 </form>
             </div>

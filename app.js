@@ -447,9 +447,9 @@ function setZone(zone) {
 }
 
 // Order Submission Logic
-function submitOrder() {
+function submitOrder(channel) {
     if (cart.length === 0) {
-        alert('El pedido está vacío.');
+        alert('El pedido está vacío. Añade algún producto primero.');
         return;
     }
 
@@ -458,6 +458,12 @@ function submitOrder() {
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
     const notes = document.getElementById('notes').value;
+    
+    if (!name || !company || !email || !phone) {
+        alert('Por favor, completa tus datos de contacto antes de enviar.');
+        return;
+    }
+
     const stockUsage = document.getElementById('stock-usage').value;
     const stockEndDate = document.getElementById('stock-end-date').value;
     const subtotal = document.getElementById('grand-total').innerText;
@@ -473,20 +479,19 @@ function submitOrder() {
 
     const message = `SOLICITUD DE PEDIDO B2B - MCPACK%0A----------------------%0AComercial: Alfonso Lacomercial%0A----------------------%0ACliente: ${name}%0AEmpresa: ${company}%0AEmail: ${email}%0ATel: ${phone}%0AZona: ${userZone === 'bcn' ? 'Barcelona' : 'Península'}%0A%0APedido:%0A${orderDetails}${stockInfo}%0A%0ASubtotal (Base): ${subtotal}%0AIVA (21%): ${iva}%0ATOTAL SOLICITUD: ${total}%0A%0ANotas: ${notes}`;
 
-    // 1. Send via WhatsApp to Alfonso
-    const waNumber = "34639647471";
-    const waUrl = `https://wa.me/${waNumber}?text=${message}`;
-    
-    // 2. Send via Email to Alfonso
-    const mailSubject = `Nuevo Pedido B2B - ${company}`;
-    const mailBody = message.replace(/%0A/g, '%0D%0A'); // Email uses CRLF
-    const mailUrl = `mailto:alfonsolacomercial@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${mailBody}`;
+    if (channel === 'whatsapp') {
+        const waNumber = "34639647471";
+        const waUrl = `https://wa.me/${waNumber}?text=${message}`;
+        window.open(waUrl, '_blank');
+    } else if (channel === 'email') {
+        const mailSubject = `Nuevo Pedido B2B - ${company}`;
+        const mailBody = message.replace(/%0A/g, '%0D%0A');
+        const mailUrl = `mailto:alfonsolacomercial@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${mailBody}`;
+        window.location.href = mailUrl;
+    }
 
-    // Execute both
-    window.open(waUrl, '_blank');
-    window.location.href = mailUrl;
-
-    alert('¡Gracias Alfonso! Se han generado las notificaciones por WhatsApp y Email correctamente.');
+    // Small log to avoid multiple alerts
+    console.log(`Pedido enviado vía ${channel}`);
 }
 
 // Window init
