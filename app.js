@@ -248,7 +248,6 @@ function updateNavVisual(card, category) {
 function getIcon(cat, productId = '') {
     const icons = {
         'vasos': 'icons/icon_vaso_mcpack_1773706871413.png',
-        'cafeteria': 'icons/icon_pasteleria_mcpack_1773706923614.png',
         'comida': 'icons/icon_comida_mcpack_1773706910837.png',
         'pizza': 'icons/icon_pizza_mcpack_1773706898855.png',
         'bolsas': 'icons/icon_bolsa_mcpack_1773706885239.png',
