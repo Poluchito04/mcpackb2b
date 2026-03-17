@@ -484,6 +484,16 @@ label {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
+.btn-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.btn-order-mail .btn-icon {
+    filter: brightness(0) invert(1); /* Make email icon white to pop on brown button */
+}
+
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
