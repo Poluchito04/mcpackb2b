@@ -505,21 +505,37 @@ label {
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
         text-align: center;
+        padding-top: 10px;
     }
     .zone-selector {
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
+        gap: 8px;
+    }
+    .zone-btn {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .submit-group, .replenishment-box, .notes-group {
+        grid-column: span 1;
+    }
+    .replenishment-row {
+        flex-direction: column;
+        gap: 15px;
     }
     .submit-group {
         flex-direction: column;
         gap: 12px;
     }
     .order-panel {
-        padding: 20px;
-        border-radius: 16px;
+        padding: 25px 20px;
+        border-radius: 20px;
     }
 }
 

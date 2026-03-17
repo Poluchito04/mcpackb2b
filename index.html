@@ -206,22 +206,22 @@
                         </div>
                         
                         <!-- NEW: Replenishment Workflow Fields -->
-                        <div class="input-group" style="grid-column: span 2; background: #f0f7f0; padding: 15px; border-radius: 8px; border: 1px dashed var(--primary);">
-                            <label style="color: var(--primary); font-weight: 700;">🔄 Servicio de Reposición Inteligente (Auto-Aviso)</label>
-                            <p style="font-size: 0.85rem; margin-bottom: 10px;">Te avisaremos cuando te quede un 30-40% de stock para que nunca te quedes sin packaging.</p>
-                            <div style="display: flex; gap: 15px;">
-                                <div style="flex: 1;">
-                                    <label for="stock-usage" style="font-size: 0.8rem;">Consumo estimado (uds/semana)</label>
+                        <div class="input-group replenishment-box">
+                            <label class="replenishment-label">🔄 Servicio de Reposición Inteligente (Auto-Aviso)</label>
+                            <p class="replenishment-desc">Te avisaremos cuando te quede un 30-40% de stock para que nunca te quedes sin packaging.</p>
+                            <div class="replenishment-row">
+                                <div class="replenishment-input-group">
+                                    <label for="stock-usage">Consumo estimado (uds/semana)</label>
                                     <input type="number" id="stock-usage" placeholder="Ej: 500">
                                 </div>
-                                <div style="flex: 1;">
-                                    <label for="stock-end-date" style="font-size: 0.8rem;">¿Cuándo calculas que se te acabará?</label>
+                                <div class="replenishment-input-group">
+                                    <label for="stock-end-date">¿Cuándo calculas que se te acabará?</label>
                                     <input type="date" id="stock-end-date">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="input-group" style="grid-column: span 2;">
+                        <div class="input-group notes-group">
                             <label for="notes">Notas especiales (ej: detalles del logo, dirección exacta)</label>
                             <textarea id="notes" rows="3" placeholder="Indica aquí si necesitas envío urgente o tienes dudas sobre el diseño..."></textarea>
                         </div>
