@@ -208,7 +208,7 @@ function renderProducts(categoryFilter) {
         const basePrice = product.price90 || product.price48 || product.price36 || product.price25 || product.price11 || product.price10 || product.price9 || product.price6 || product.price5 || product.price3 || product.price10r;
         
         card.innerHTML = `
-            <div class="product-tag">${product.category.toUpperCase()}</div>
+            ${product.tag ? `<div class="product-tag">${product.tag}</div>` : ''}
             <div class="product-icon">${getIcon(product.category)}</div>
             <h3>${product.name}</h3>
             <p class="product-info">${product.info}</p>
@@ -238,8 +238,8 @@ function updateNavVisual(card, category) {
     const cards = document.querySelectorAll('.cat-card');
     cards.forEach(c => c.classList.remove('active'));
     
-    // Add active class to clicked card
-    card.classList.add('active');
+    // Add active class to clicked card if it exists
+    if (card) card.classList.add('active');
     
     // Render products
     renderProducts(category);
@@ -247,13 +247,14 @@ function updateNavVisual(card, category) {
 
 function getIcon(cat) {
     const icons = {
-        'vasos': '☕',
-        'comida': '🍔',
-        'bolsas': '🛍️',
-        'pizza': '🍕',
-        'cafeteria': '🥐'
+        'vasos': 'icons/icon_vaso_mcpack_1773706871413.png',
+        'cafeteria': 'icons/icon_pasteleria_mcpack_1773706923614.png',
+        'comida': 'icons/icon_comida_mcpack_1773706910837.png',
+        'pizza': 'icons/icon_pizza_mcpack_1773706898855.png',
+        'bolsas': 'icons/icon_bolsa_mcpack_1773706885239.png'
     };
-    return icons[cat] || '📦';
+    const path = icons[cat] || 'icons/icon_bolsa_mcpack_1773706885239.png';
+    return `<img src="${path}" class="product-icon-img" alt="${cat}">`;
 }
 
 function openConfigurator(productId) {
