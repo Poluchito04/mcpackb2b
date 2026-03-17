@@ -521,7 +521,13 @@ label {
     }
     .form-grid {
         grid-template-columns: 1fr;
+        .replenishment-input-group {
+        width: 100%;
     }
+    .replenishment-input-group input {
+        width: 100%;
+    }
+}
     .submit-group, .replenishment-box, .notes-group {
         grid-column: span 1;
     }
