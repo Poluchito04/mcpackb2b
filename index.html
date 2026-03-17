@@ -35,13 +35,40 @@
             <div class="container">
                 <h1>Tu Packaging, Automatizado.</h1>
                 <p>Configura tu pedido personalizado en segundos. Sin esperas, sin errores, directamente a producción.</p>
-                <div class="category-nav">
-                    <button class="nav-btn active" onclick="updateNav(this, 'vasos')">☕ Vasos</button>
-                    <button class="nav-btn" onclick="updateNav(this, 'cafeteria')">🥐 Cafetería</button>
-                    <button class="nav-btn" onclick="updateNav(this, 'comida')">🍔 Comida / Takeaway</button>
-                    <button class="nav-btn" onclick="updateNav(this, 'pizza')">🍕 Pizzería</button>
-                    <button class="nav-btn" onclick="updateNav(this, 'bolsas')">🛍️ Bolsas</button>
-                    <button class="nav-btn" onclick="updateNav(this, 'all')">Ver Todo</button>
+                <div class="visual-category-grid">
+                    <div class="cat-card active" onclick="updateNavVisual(this, 'vasos')">
+                        <img src="https://i0.wp.com/www.mcpack.es/wp-content/uploads/2024/04/vasos_desechables_colage.jpg" alt="Vasos de Papel">
+                        <div class="cat-overlay">
+                            <span>Vasos</span>
+                        </div>
+                    </div>
+                    <div class="cat-card" onclick="updateNavVisual(this, 'cafeteria')">
+                        <img src="https://i0.wp.com/www.mcpack.es/wp-content/uploads/2024/04/papel_parafinado_colage.jpg" alt="Cafetería y Pastelería">
+                        <div class="cat-overlay">
+                            <span>Cafetería</span>
+                        </div>
+                    </div>
+                    <div class="cat-card" onclick="updateNavVisual(this, 'comida')">
+                        <img src="https://i0.wp.com/www.mcpack.es/wp-content/uploads/2024/10/imagen-para-seccion-PERSONALIZADOS-ensaladeras.jpg" alt="Ensaladeras y Food Delivery">
+                        <div class="cat-overlay">
+                            <span>Comida</span>
+                        </div>
+                    </div>
+                    <div class="cat-card" onclick="updateNavVisual(this, 'pizza')">
+                        <img src="https://i0.wp.com/www.mcpack.es/wp-content/uploads/2024/10/Seccion-Personalizados-780x757-PIZZA.jpg" alt="Cajas de Pizza">
+                        <div class="cat-overlay">
+                            <span>Pizza</span>
+                        </div>
+                    </div>
+                    <div class="cat-card" onclick="updateNavVisual(this, 'bolsas')">
+                        <img src="https://i0.wp.com/www.mcpack.es/wp-content/uploads/2024/04/bolsas_de_papel_colage.jpg" alt="Bolsas de Papel">
+                        <div class="cat-overlay">
+                            <span>Bolsas</span>
+                        </div>
+                    </div>
+                    <div class="cat-card" onclick="updateNavVisual(this, 'all')">
+                        <div style="background: var(--primary); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">Ver Todo</div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -223,15 +223,23 @@ function renderProducts(categoryFilter) {
 }
 
 function updateNav(btn, category) {
-    // Remove active class from all buttons in the same parent
+    // Legacy support
     const parents = document.querySelectorAll('.category-nav');
     parents.forEach(p => {
         const btns = p.querySelectorAll('.nav-btn');
         btns.forEach(b => b.classList.remove('active'));
     });
-    
-    // Add active class to clicked button
     btn.classList.add('active');
+    renderProducts(category);
+}
+
+function updateNavVisual(card, category) {
+    // Support for the new visual category grid
+    const cards = document.querySelectorAll('.cat-card');
+    cards.forEach(c => c.classList.remove('active'));
+    
+    // Add active class to clicked card
+    card.classList.add('active');
     
     // Render products
     renderProducts(category);
