@@ -75,10 +75,10 @@ const products = [
         moqPersonalized: 9000
     },
 
-    // --- CAFETERÍA (Servilletas) ---
+    // --- SERVILLETAS ---
     {
         id: 'servilleta-20-blanca',
-        category: 'cafeteria',
+        category: 'servilletas',
         name: 'Servilleta Blanca 20x20 pp',
         info: 'Punta-Punta. 20 cajas de 4.500 und.',
         price90: 11.62,
@@ -88,7 +88,7 @@ const products = [
     },
     {
         id: 'servilleta-20-eco',
-        category: 'cafeteria',
+        category: 'servilletas',
         name: 'Servilleta Eco 20x20 pp',
         info: 'Punta-Punta. Sostenible.',
         price90: 9.94,
@@ -98,7 +98,7 @@ const products = [
     },
     {
         id: 'servilleta-1-8-blanca',
-        category: 'cafeteria',
+        category: 'servilletas',
         name: 'Servilleta Blanca 1/8 pp',
         info: 'Punta-Punta. 20 cajas de 1.800 und.',
         price36: 25.05,
@@ -108,7 +108,7 @@ const products = [
     },
     {
         id: 'servilleta-1-8-eco',
-        category: 'cafeteria',
+        category: 'servilletas',
         name: 'Servilleta Eco 1/8 pp',
         info: 'Punta-Punta. Sostenible.',
         price36: 24.64,
@@ -118,7 +118,7 @@ const products = [
     },
     {
         id: 'servilleta-1-6-blanca',
-        category: 'cafeteria',
+        category: 'servilletas',
         name: 'Servilleta Blanca 1/6 pp',
         info: 'Punta-Punta. 20 cajas de 2.400 und.',
         price48: 19.96,
@@ -128,7 +128,7 @@ const products = [
     },
     {
         id: 'servilleta-1-6-eco',
-        category: 'cafeteria',
+        category: 'servilletas',
         name: 'Servilleta Eco 1/6 pp',
         info: 'Punta-Punta. Sostenible.',
         price48: 18.85,
@@ -161,13 +161,13 @@ const products = [
     { id: 'ensaladera-750', category: 'comida', name: 'Ensaladera Eco Blanca 750ml', info: 'Formato estándar ración abierta.', price5: 240, price11: 225, clichePrice: 80, moqStandard: { bcn: 500, rest: 1000 }, moqPersonalized: 5000 },
     { id: 'ensaladera-1100', category: 'comida', name: 'Ensaladera Eco Blanca 1100ml', info: 'Ración familiar.', price5: 305, price11: 287, clichePrice: 80, moqStandard: { bcn: 500, rest: 1000 }, moqPersonalized: 5000 },
 
-    // --- COMIDA / TAKEAWAY (Sobres) ---
-    { id: 'sobre-blanco-15', category: 'comida', name: 'Sobre Blanco 15x21+6', info: 'Interior antigrasa (+20%).', price10: 34.00, price25: 28.22, clichePrice: 90, moqStandard: { bcn: 1000, rest: 5000 }, moqPersonalized: 10000 },
-    { id: 'sobre-kraft-15', category: 'comida', name: 'Sobre Kraft 15x21+6', info: 'Interior antigrasa (+20%). Eco.', price10: 33.49, price25: 27.88, clichePrice: 90, moqStandard: { bcn: 1000, rest: 5000 }, moqPersonalized: 10000 },
-    { id: 'sobre-blanco-9', category: 'comida', name: 'Sobre Blanco 9x21+6', info: 'Interior antigrasa (+20%). Snacks.', price10: 29.07, price25: 23.63, clichePrice: 79, moqStandard: { bcn: 1000, rest: 5000 }, moqPersonalized: 10000 },
-    { id: 'sobre-kraft-9', category: 'comida', name: 'Sobre Kraft 9x21+6', info: 'Interior antigrasa (+20%). Snacks eco.', price10: 28.90, price25: 23.46, clichePrice: 79, moqStandard: { bcn: 1000, rest: 5000 }, moqPersonalized: 10000 },
-    { id: 'sobre-blanco-15-15', category: 'comida', name: 'Sobre Blanco 15x15 (Ab./Cer.)', info: 'Versátil blanco.', price10: 35.19, price25: 29.58, clichePrice: 80, moqStandard: { bcn: 1000, rest: 5000 }, moqPersonalized: 10000 },
-    { id: 'sobre-kraft-15-15', category: 'comida', name: 'Sobre Kraft 15x15 (Ab./Cer.)', info: 'Versátil kraft.', price10: 32.89, price25: 26.94, clichePrice: 80, moqStandard: { bcn: 1000, rest: 5000 }, moqPersonalized: 10000 },
+    // --- SOBRES ---
+    { id: 'sobre-blanco-15', category: 'sobres', name: 'Sobre Blanco 15x21+6', info: 'Interior antigrasa (+20%).', price10: 34.00, price25: 28.22, clichePrice: 90, moqStandard: { bcn: 1000, rest: 5000 }, moqPersonalized: 10000 },
+    { id: 'sobre-kraft-15', category: 'sobres', name: 'Sobre Kraft 15x21+6', info: 'Interior antigrasa (+20%). Eco.', price10: 33.49, price25: 27.88, clichePrice: 90, moqStandard: { bcn: 1000, rest: 5000 }, moqPersonalized: 10000 },
+    { id: 'sobre-blanco-9', category: 'sobres', name: 'Sobre Blanco 9x21+6', info: 'Interior antigrasa (+20%). Snacks.', price10: 29.07, price25: 23.63, clichePrice: 79, moqStandard: { bcn: 1000, rest: 5000 }, moqPersonalized: 10000 },
+    { id: 'sobre-kraft-9', category: 'sobres', name: 'Sobre Kraft 9x21+6', info: 'Interior antigrasa (+20%). Snacks eco.', price10: 28.90, price25: 23.46, clichePrice: 79, moqStandard: { bcn: 1000, rest: 5000 }, moqPersonalized: 10000 },
+    { id: 'sobre-blanco-15-15', category: 'sobres', name: 'Sobre Blanco 15x15 (Ab./Cer.)', info: 'Versátil blanco.', price10: 35.19, price25: 29.58, clichePrice: 80, moqStandard: { bcn: 1000, rest: 5000 }, moqPersonalized: 10000 },
+    { id: 'sobre-kraft-15-15', category: 'sobres', name: 'Sobre Kraft 15x15 (Ab./Cer.)', info: 'Versátil kraft.', price10: 32.89, price25: 26.94, clichePrice: 80, moqStandard: { bcn: 1000, rest: 5000 }, moqPersonalized: 10000 },
 
     // --- COMIDA / TAKEAWAY (Antigrasa) ---
     { id: 'papel-antigrasa-resma', category: 'comida', name: 'Papel Antigrasa 62x86 (10 Resmas)', info: 'Con corte incluido.', price10r: 120, clichePrice: 150, moqStandard: { bcn: 1, rest: 5 }, moqPersonalized: 10 },
@@ -209,7 +209,7 @@ function renderProducts(categoryFilter) {
         
         card.innerHTML = `
             ${product.tag ? `<div class="product-tag">${product.tag}</div>` : ''}
-            <div class="product-icon">${getIcon(product.category)}</div>
+            <div class="product-icon">${getIcon(product.category, product.id)}</div>
             <h3>${product.name}</h3>
             <p class="product-info">${product.info}</p>
             <div class="product-price-prev">Desde ${((basePrice || 0) * 0.85).toFixed(2)}€ / millar</div>
@@ -245,15 +245,24 @@ function updateNavVisual(card, category) {
     renderProducts(category);
 }
 
-function getIcon(cat) {
+function getIcon(cat, productId = '') {
     const icons = {
         'vasos': 'icons/icon_vaso_mcpack_1773706871413.png',
         'cafeteria': 'icons/icon_pasteleria_mcpack_1773706923614.png',
         'comida': 'icons/icon_comida_mcpack_1773706910837.png',
         'pizza': 'icons/icon_pizza_mcpack_1773706898855.png',
-        'bolsas': 'icons/icon_bolsa_mcpack_1773706885239.png'
+        'bolsas': 'icons/icon_bolsa_mcpack_1773706885239.png',
+        'servilletas': 'icons/icon_servilleta_mcpack_1773707518427.png',
+        'sobres': 'icons/icon_sobre_mcpack_1773707490670.png'
     };
-    const path = icons[cat] || 'icons/icon_bolsa_mcpack_1773706885239.png';
+    
+    let path = icons[cat] || 'icons/icon_bolsa_mcpack_1773706885239.png';
+    
+    // Specific overrides
+    if (productId.includes('papel-antigrasa')) {
+        path = 'icons/icon_antigrasa_mcpack_1773707503192.png';
+    }
+    
     return `<img src="${path}" class="product-icon-img" alt="${cat}">`;
 }
 
