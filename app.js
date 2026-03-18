@@ -483,6 +483,15 @@ function submitOrder(channel) {
 
     const stockUsage = document.getElementById('stock-usage').value;
     const stockEndDate = document.getElementById('stock-end-date').value;
+    
+    // Optional Fiscal Data
+    const fCompany = document.getElementById('fiscal-company').value;
+    const fCif = document.getElementById('fiscal-cif').value;
+    const fAddress = document.getElementById('fiscal-address').value;
+    const fDelivery = document.getElementById('delivery-address').value;
+    const fContact = document.getElementById('delivery-contact').value;
+    const fAccEmail = document.getElementById('accounting-email').value;
+
     const subtotal = document.getElementById('grand-total').innerText;
     const iva = document.getElementById('iva-amount').innerText;
     const total = document.getElementById('grand-total-display').innerText;
@@ -494,7 +503,18 @@ function submitOrder(channel) {
         stockInfo = `%0A%0A🔄 PREVISIÓN DE STOCK:%0A- Consumo: ${stockUsage || 'No indicado'} uds/semana%0A- Fin stock est.: ${stockEndDate || 'No indicado'}`;
     }
 
-    const message = `SOLICITUD DE PEDIDO B2B - MCPACK%0A----------------------%0AComercial: Alfonso Lacomercial%0A----------------------%0ACliente: ${name}%0AEmpresa: ${company}%0AEmail: ${email}%0ATel: ${phone}%0AZona: ${userZone === 'bcn' ? 'Barcelona' : 'Península'}%0A%0APedido:%0A${orderDetails}${stockInfo}%0A%0ASubtotal (Base): ${subtotal}%0AIVA (21%): ${iva}%0ATOTAL SOLICITUD: ${total}%0A%0ANotas: ${notes}`;
+    let fiscalInfo = "";
+    if (fCompany || fCif || fAddress) {
+        fiscalInfo = `%0A%0A📄 DATOS FISCALES (FICHA CLIENTE):`;
+        if (fCompany) fiscalInfo += `%0A- Razón Social: ${fCompany}`;
+        if (fCif) fiscalInfo += `%0A- CIF/NIF: ${fCif}`;
+        if (fAddress) fiscalInfo += `%0A- Dir. Fiscal: ${fAddress}`;
+        if (fDelivery) fiscalInfo += `%0A- Dir. Entrega: ${fDelivery}`;
+        if (fContact) fiscalInfo += `%0A- Contacto Entrega: ${fContact}`;
+        if (fAccEmail) fiscalInfo += `%0A- Email Contabilidad: ${fAccEmail}`;
+    }
+
+    const message = `SOLICITUD DE PEDIDO B2B - MCPACK%0A----------------------%0AComercial: Alfonso Lacomercial%0A----------------------%0ACliente: ${name}%0AEmpresa: ${company}%0AEmail: ${email}%0ATel: ${phone}%0AZona: ${userZone === 'bcn' ? 'Barcelona' : 'Península'}%0A%0APedido:%0A${orderDetails}${stockInfo}${fiscalInfo}%0A%0ASubtotal (Base): ${subtotal}%0AIVA (21%): ${iva}%0ATOTAL SOLICITUD: ${total}%0A%0ANotas: ${notes}`;
 
     if (channel === 'whatsapp') {
         const waNumber = "34639647471";
@@ -506,6 +526,30 @@ function submitOrder(channel) {
         const mailUrl = `mailto:alfonsolacomercial@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${mailBody}`;
         window.location.href = mailUrl;
     }
+
+// -------------------------------------------------------------
+// Intersection Observer for Scroll Animations
+// -------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    const fadeElements = document.querySelectorAll('.fade-in-scroll');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Trigger when 15% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, observerOptions);
+
+    fadeElements.forEach(el => observer.observe(el));
+});
 
     // Small log to avoid multiple alerts
     console.log(`Pedido enviado vía ${channel}`);

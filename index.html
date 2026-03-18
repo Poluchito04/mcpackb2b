@@ -225,6 +225,44 @@
                             <label for="notes">Notas especiales (ej: detalles del logo, dirección exacta)</label>
                             <textarea id="notes" rows="3" placeholder="Indica aquí si necesitas envío urgente o tienes dudas sobre el diseño..."></textarea>
                         </div>
+
+                        <!-- NEW: Optional Fiscal Data Accordion (Progressive Disclosure) -->
+                        <details class="fiscal-accordion">
+                            <summary class="fiscal-summary">
+                                <span>📄 Completar Ficha de Cliente (Opcional - Acelera tu alta)</span>
+                                <span class="accordion-icon">▼</span>
+                            </summary>
+                            <div class="fiscal-content">
+                                <p class="fiscal-desc">Rellena estos datos si quieres que generemos tu ficha de cliente y facturación al instante. 100% seguro.</p>
+                                <div class="form-grid" style="margin-top: 10px;">
+                                    <div class="input-group">
+                                        <label for="fiscal-company">Razón Social</label>
+                                        <input type="text" id="fiscal-company" placeholder="Ej: McPack Solutions S.L.">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="fiscal-cif">CIF / NIF</label>
+                                        <input type="text" id="fiscal-cif" placeholder="Ej: B12345678">
+                                    </div>
+                                    <div class="input-group" style="grid-column: span 1;">
+                                        <label for="fiscal-address">Dirección Fiscal Completa</label>
+                                        <input type="text" id="fiscal-address" placeholder="Ej: C/ Industria 12, P1, 08001 Barcelona">
+                                    </div>
+                                    <div class="input-group" style="grid-column: span 1;">
+                                        <label for="delivery-address">Dir. de Entrega (Si es distinta)</label>
+                                        <input type="text" id="delivery-address" placeholder="Ej: Mismo domicilio fiscal">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="delivery-contact">Persona encargada (Entrega)</label>
+                                        <input type="text" id="delivery-contact" placeholder="Ej: Ana (Encargada Local)">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="accounting-email">Email de Contabilidad</label>
+                                        <input type="email" id="accounting-email" placeholder="facturacion@tunegocio.com">
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
                         <div class="submit-group">
                             <button type="button" class="btn-order-wa" onclick="submitOrder('whatsapp')">
                                 <span class="btn-icon-svg">
