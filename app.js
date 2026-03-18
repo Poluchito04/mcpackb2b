@@ -243,6 +243,15 @@ function updateNavVisual(card, category) {
     
     // Render products
     renderProducts(category);
+
+    // UX Enhancement: Smooth scroll down to the catalog to show the user that filtering happened
+    const catalogSection = document.getElementById('catalog');
+    if (catalogSection) {
+        // Use a slight timeout to ensure DOM updating finishes before scroll
+        setTimeout(() => {
+            catalogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+    }
 }
 
 function getIcon(cat, productId = '') {
