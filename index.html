@@ -20,7 +20,7 @@
 
     <header>
         <div class="container header-content">
-            <div class="logo-container">
+            <div class="logo-container" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" style="cursor: pointer;">
                 <div class="logo-text">MCPACK<span>.es</span></div>
                 <div style="font-size: 0.7rem; color: var(--gray-medium); font-weight: 600; text-transform: uppercase; margin-left: 5px; opacity: 0.8;">B2B Portal</div>
             </div>
@@ -38,52 +38,56 @@
                 <h1>Tu Packaging, Automatizado.</h1>
                 <p>Configura tu pedido personalizado en segundos. Sin esperas, sin errores, directamente a producción.</p>
                 <div class="visual-category-grid">
-                    <div class="cat-card active" onclick="updateNavVisual(this, 'vasos')">
+                    <div class="cat-card" onclick="toggleCategory(this, 'vasos')">
                         <img src="https://i0.wp.com/www.mcpack.es/wp-content/uploads/2024/04/vasos_desechables_colage.jpg" alt="Vasos de Papel">
                         <div class="cat-overlay">
                             <span>Vasos</span>
                         </div>
                     </div>
-                    <div class="cat-card" onclick="updateNavVisual(this, 'comida')">
+                    <div class="cat-card" onclick="toggleCategory(this, 'comida')">
                         <img src="https://i0.wp.com/www.mcpack.es/wp-content/uploads/2024/10/imagen-para-seccion-PERSONALIZADOS-ensaladeras.jpg" alt="Ensaladeras y Food Delivery">
                         <div class="cat-overlay">
                             <span>Comida</span>
                         </div>
                     </div>
-                    <div class="cat-card" onclick="updateNavVisual(this, 'pizza')">
+                    <div class="cat-card" onclick="toggleCategory(this, 'pizza')">
                         <img src="https://i0.wp.com/www.mcpack.es/wp-content/uploads/2024/10/Seccion-Personalizados-780x757-PIZZA.jpg" alt="Cajas de Pizza">
                         <div class="cat-overlay">
                             <span>Pizza</span>
                         </div>
                     </div>
-                    <div class="cat-card" onclick="updateNavVisual(this, 'servilletas')">
+                    <div class="cat-card" onclick="toggleCategory(this, 'servilletas')">
                         <img src="https://www.mcpack.es/wp-content/uploads/2024/04/servilletas_colage.jpg" alt="Servilletas Personalizadas">
                         <div class="cat-overlay">
                             <span>Servilletas</span>
                         </div>
                     </div>
-                    <div class="cat-card" onclick="updateNavVisual(this, 'sobres')">
+                    <div class="cat-card" onclick="toggleCategory(this, 'sobres')">
                         <img src="https://www.mcpack.es/wp-content/uploads/2025/02/Foto-Seccion-Personalizados-Sobres.jpg" alt="Sobres de Papel">
                         <div class="cat-overlay">
                             <span>Sobres</span>
                         </div>
                     </div>
-                    <div class="cat-card" onclick="updateNavVisual(this, 'bolsas')">
+                    <div class="cat-card" onclick="toggleCategory(this, 'bolsas')">
                         <img src="https://i0.wp.com/www.mcpack.es/wp-content/uploads/2024/04/bolsas_de_papel_colage.jpg" alt="Bolsas de Papel">
                         <div class="cat-overlay">
                             <span>Bolsas</span>
                         </div>
                     </div>
                     <div class="view-all-container">
-                        <button class="btn-view-all-small" onclick="updateNavVisual(null, 'all')">Ver todo el catálogo</button>
+                        <button class="btn-view-all-small" onclick="toggleCategory(null, 'all')">Ver todo el catálogo</button>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="container">
-            <div id="catalog-grid" class="catalog-grid">
-                <!-- Products injected by JS -->
+                    <!-- ACCORDION WRAPPER (Inyectado por JS de forma dinámica) -->
+                    <div id="catalog-expansion-wrapper" class="catalog-expansion-wrapper">
+                        <div class="catalog-wrapper-inner">
+                            <div id="catalog-grid" class="catalog-grid">
+                                <!-- Products injected by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 

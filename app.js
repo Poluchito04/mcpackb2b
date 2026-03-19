@@ -233,25 +233,47 @@ function updateNav(btn, category) {
     renderProducts(category);
 }
 
-function updateNavVisual(card, category) {
-    // Support for the new visual category grid
+let currentOpenCategory = null;
+
+function toggleCategory(card, category) {
+    const wrapper = document.getElementById('catalog-expansion-wrapper');
+    const isSameCategory = currentOpenCategory === category;
+
+    // Reset all active states
     const cards = document.querySelectorAll('.cat-card');
     cards.forEach(c => c.classList.remove('active'));
-    
-    // Add active class to clicked card if it exists
-    if (card) card.classList.add('active');
-    
-    // Render products
+
+    // Toggle behavior (close if same category clicked)
+    if (isSameCategory && wrapper.classList.contains('open')) {
+        wrapper.classList.remove('open');
+        currentOpenCategory = null;
+        return;
+    }
+
+    // Open logic
+    if (card) {
+        card.classList.add('active');
+        // Move the wrapper DOM element to be directly after the clicked card
+        card.parentNode.insertBefore(wrapper, card.nextSibling);
+    } else {
+        // Fallback for "Ver Todo"
+        const grid = document.querySelector('.visual-category-grid');
+        grid.appendChild(wrapper);
+    }
+
+    // Render products silently
     renderProducts(category);
 
-    // UX Enhancement: Smooth scroll down to the catalog to show the user that filtering happened
-    const catalogSection = document.getElementById('catalog');
-    if (catalogSection) {
-        // Use a slight timeout to ensure DOM updating finishes before scroll
-        setTimeout(() => {
-            catalogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 50);
-    }
+    // Expand accordion gracefully
+    wrapper.classList.add('open');
+    currentOpenCategory = category;
+
+    // Smooth scroll contextually so the user sees the card and the top of products
+    setTimeout(() => {
+        if (card) {
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, 150);
 }
 
 function getIcon(cat, productId = '') {
