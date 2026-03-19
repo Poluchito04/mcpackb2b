@@ -595,13 +595,13 @@ label {
     }
     .form-grid {
         grid-template-columns: 1fr;
-        .replenishment-input-group {
+    }
+    .replenishment-input-group {
         width: 100%;
     }
     .replenishment-input-group input {
         width: 100%;
     }
-}
     .submit-group, .replenishment-box, .notes-group {
         grid-column: span 1;
     }
@@ -613,10 +613,34 @@ label {
         flex-direction: column;
         gap: 12px;
     }
+    .btn-order-wa, .btn-order-mail {
+        width: 100%;
+    }
     .order-panel {
         padding: 25px 20px;
         border-radius: 20px;
     }
+}
+
+/* Catalog Expansion Grid - JS Inserted */
+.catalog-expansion-wrapper {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), margin 0.4s ease-out;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.catalog-expansion-wrapper.open {
+    grid-template-rows: 1fr;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.catalog-wrapper-inner {
+    overflow: hidden;
 }
 
 @media (max-width: 480px) {
